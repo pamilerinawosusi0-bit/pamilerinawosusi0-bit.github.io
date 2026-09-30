@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0f14">
+  <title>NAIVE — Social</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">NAIVE</div>
+      <div class="top-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button>
+        <button class="icon-btn" id="messagesBtn" aria-label="Messages">✉</button>
+      </div>
+    </header>
 
+    <main>
+      <section class="stories-wrap">
+        <div class="stories" id="stories"></div>
+      </section>
+
+      <section class="composer card">
+        <div class="avatar">P</div>
+        <button class="composer-input" id="openComposer">What's happening?</button>
+        <button class="media-btn" id="quickMedia" aria-label="Add media">＋</button>
+      </section>
+
+      <section id="feed" class="feed"></section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="home"><span>⌂</span><small>Home</small></button>
+      <button class="nav-item" data-tab="explore"><span>⌕</span><small>Explore</small></button>
+      <button class="nav-item create" id="navCreate"><span>＋</span><small>Post</small></button>
+      <button class="nav-item" data-tab="notifications"><span>♡</span><small>Alerts</small></button>
+      <button class="nav-item" data-tab="profile"><span>◉</span><small>Profile</small></button>
+    </nav>
+  </div>
+
+  <div class="modal hidden" id="postModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>Create post</h2>
+        <button class="close-btn" id="closeModal">×</button>
+      </div>
+      <textarea id="postText" maxlength="500" placeholder="Write something..."></textarea>
+      <div id="mediaPreview" class="media-preview hidden"></div>
+      <div class="composer-tools">
+        <label class="tool-btn">📷 Photo/Video<input id="mediaInput" type="file" accept="image/*,video/*" hidden></label>
+        <button class="tool-btn" id="emojiBtn">😊 Emoji</button>
+      </div>
+      <button class="publish-btn" id="publishBtn">Post</button>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="commentsModal">
+    <div class="modal-card comments-card">
+      <div class="modal-head">
+        <h2>Comments</h2>
+        <button class="close-btn" id="closeComments">×</button>
+      </div>
+      <div id="commentsList" class="comments-list"></div>
+      <div class="comment-box">
+        <input id="commentInput" maxlength="200" placeholder="Write a comment...">
+        <button id="sendComment">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="Script.js"></script>
+</body>
+</html>
